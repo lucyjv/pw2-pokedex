@@ -1,5 +1,5 @@
 <?php
 echo "commit facu";
-echo "comit dami 2";
+echo "comit dami";
 echo "commit lu";
 ?>
