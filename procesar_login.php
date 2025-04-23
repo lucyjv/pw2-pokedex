@@ -9,12 +9,12 @@ $contrasenia_valida = "1234";
 $admin = isset($_POST['usuario']) ? $_POST['usuario'] : '';
 $contrasenia = isset($_POST['contrasenia']) ? $_POST['contrasenia'] : '';
 
-//Se verifican los datos
-if($admin === $admin_valido && $contrasenia === $contrasenia_valida) {
+if ($admin === $admin_valido && $contrasenia === $contrasenia_valida) {
     $_SESSION['usuario'] = $admin;
-    header("Location: privado.php");
+    header("Location: index.php");
     exit();
 } else {
-    echo "Credenciales incorrectas. <a href='login.php'>Intentar de nuevo</a>";
+    header("Location: index.php?error=1");
+    exit();
 }
 ?>
