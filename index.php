@@ -1,6 +1,11 @@
 <?php
+global $conexion;
 session_start();
 $logueado = isset($_SESSION['usuario']);
+
+
+//Se conecta con la base de datos
+include('conexion.php');
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +66,26 @@ $logueado = isset($_SESSION['usuario']);
             text-align: center;
             margin-top: 15px;
         }
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        img.pokemon {
+            max-width: 80px;
+            height: auto;
+        }
+        img.tipo {
+            max-width: 40px;
+            height: auto;
+            margin: 0 5px;
+        }
     </style>
 </head>
 <body>
@@ -87,6 +112,42 @@ $logueado = isset($_SESSION['usuario']);
     <input type="text" placeholder="Buscar Pokémon por nombre, tipo o número">
     <button>Buscar</button>
 </div>
+
+<!-- Se agrega la tabla con los pokemones-->
+
+<?php
+
+$sql = "SELECT * FROM pokemon";
+$resultado = $conexion->query($sql);
+
+if($resultado->num_rows > 0){
+    echo "<table>";
+    echo "<thread>
+            <tr>
+                <th>Imagen</th>
+                <th>Numero</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+        </tr>
+        </thread>";
+    echo '<tbody>';
+    while ($fila = $resultado->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td><img class="pokemon" src="' . $fila['imagen'] . '" alt="' . htmlspecialchars($fila['nombre']) . '"></td>';
+        echo '<td>#' . htmlspecialchars($fila['numero']) . '</td>';
+        echo '<td>' . htmlspecialchars($fila['nombre']) . '</td>';
+        echo '<td>';
+        echo '<img class="tipo" src="' . $fila['tipo1'] . '" alt="Tipo 1">';
+
+        echo '</td>';
+        echo '</tr>';
+    }
+    echo '</tbody></table>';
+} else {
+    echo '<p style="text-align: center;">No hay Pokémon para mostrar.</p>';
+}
+?>
+
 
 </body>
 </html>
