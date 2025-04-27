@@ -11,7 +11,7 @@
             );
     INSERT INTO pokemon(numero, nombre, tipo1, tipo2, descripcion, imagen)
     VALUES (1,'Bulbasaur','img/tipos/planta.png', 'img/tipos/veneno.png','Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo.', 'img/pokemones/1.png'),
-           (2,'Ivysaur','img/tipos/planta.png','img/tipos/veneno','Cuando la flor de su lomo empieza a abrirse, desprende un agradable aroma.','img/pokemones/1.png'),
+           (2,'Ivysaur','img/tipos/planta.png','img/tipos/veneno','Cuando la flor de su lomo empieza a abrirse, desprende un agradable aroma.','img/pokemones/2.png'),
            (3, 'Venusaur', 'img/tipos/planta.png', 'img/tipos/veneno.png', 'La flor del lomo libera un aroma que calma a quien lo huele.', 'img/pokemones/3.png'),
            (4, 'Charmander', 'img/tipos/fuego.png', NULL, 'La llama de su cola indica su salud. Si está débil, la llama se apaga.', 'img/pokemones/4.png'),
            (5, 'Charmeleon', 'img/tipos/fuego.png', NULL, 'Ataca con su cola encendida. Es muy agresivo en combate.', 'img/pokemones/5.png'),
