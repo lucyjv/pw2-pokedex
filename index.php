@@ -161,8 +161,10 @@ if($resultado->num_rows > 0){
                 <th>Numero</th>
                 <th>Nombre</th>
                 <th>Tipo 1</th>
-                <th>Tipo 2</th>
-        </tr>
+                <th>Tipo 2</th>";
+                if($logueado){
+                   echo"<th>Opciones Admin</th>";}
+        echo"</tr>
         </thread>";
     echo '<tbody>';
     while ($fila = $resultado->fetch_assoc()) {
@@ -177,17 +179,31 @@ if($resultado->num_rows > 0){
         else{
             echo '<td> - </td>';
             }
+        if($logueado){
+            echo '<td> <button onclick="window.location.href=' ."'editarPoke.php';" .'"' .'class="boton-editar">
+            Editar
+            </button>';
+            echo'<button class="boton-eliminar">
+             Eliminar
+            </button>
+            </td>';
+        }
         echo '</td>';
         echo '</tr>';
         }
-    echo '</tbody></table>';
-} else {
-    echo '<p style="text-align: center;">No hay Pokémon para mostrar.</p>';
+        echo '</tbody></table>';
+    }
+    else {
+        echo '<p style="text-align: center;">No hay Pokémon para mostrar.</p>';
 }
+    if($logueado){
+        echo'<button onclick="window.location.href=' ."'agregarPoke.php';" .'"' .'class="boton-agregar">
+                Agregar un nuevo Pokémon
+        </button>';
+    }
+
 ?>
-<button onclick="window.location.href='agregarPoke.php';" class="boton-agregar">
-    Agregar un nuevo Pokémon
-</button>
+
 
 
 </body>
