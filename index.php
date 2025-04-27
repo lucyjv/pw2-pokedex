@@ -149,7 +149,8 @@ if($resultado->num_rows > 0){
                 <th>Imagen</th>
                 <th>Numero</th>
                 <th>Nombre</th>
-                <th>Tipo</th>
+                <th>Tipo 1</th>
+                <th>Tipo 2</th>
         </tr>
         </thread>";
     echo '<tbody>';
