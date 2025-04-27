@@ -159,6 +159,12 @@ if($resultado->num_rows > 0){
         echo '<td>#' . htmlspecialchars($fila['numero']) . '</td>';
         echo '<td>' . htmlspecialchars($fila['nombre']) . '</td>';
         echo '<td><img class="tipo" src="' . $fila['tipo1'] . '" alt="Tipo 1"></td>';
+        if ($fila['tipo2']!= NULL){
+            echo '<td><img class="tipo" src="' . $fila['tipo2'] . '" alt="Tipo 2"></td>';
+        }
+        else{
+            echo '<td> -</td>';
+        }
         echo '</td>';
         echo '</tr>';
     }
