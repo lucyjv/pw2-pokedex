@@ -108,6 +108,17 @@ include('conexion.php');
             max-width: 100px;
             height: auto
         }
+        .boton-agregar{
+            padding: 10px 15px;
+            background-color: #3d7216;
+            font-family: Poppins, sans-serif;
+            font-weight: 500;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -162,18 +173,21 @@ if($resultado->num_rows > 0){
         echo '<td><img class="tipo" src="' . $fila['tipo1'] . '" alt="Tipo 1"></td>';
         if ($fila['tipo2']!= NULL){
             echo '<td><img class="tipo" src="' . $fila['tipo2'] . '" alt="Tipo 2"></td>';
-        }
+            }
         else{
-            echo '<td> -</td>';
-        }
+            echo '<td> - </td>';
+            }
         echo '</td>';
         echo '</tr>';
-    }
+        }
     echo '</tbody></table>';
 } else {
     echo '<p style="text-align: center;">No hay Pokémon para mostrar.</p>';
 }
 ?>
+<button onclick="window.location.href='agregarPoke.php';" class="boton-agregar">
+    Agregar un nuevo Pokémon
+</button>
 
 
 </body>
