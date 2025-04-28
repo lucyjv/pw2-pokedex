@@ -23,18 +23,11 @@ guardarImagen();
 
 if($tipo2!=""){
     $sql="INSERT INTO pokemon(numero, nombre, tipo1, tipo2, descripcion, imagen) VALUES($numero, '$nombre', 'img/tipos/$tipo1.png', 'img/tipos/$tipo2.png', '$descripcion', 'img/pokemones/$numero.png')";
-    if ($conexion->query($sql) === TRUE) {
-        echo "Nuevo registro creado con éxito";
-    } else {
-        echo "Error: " . $conexion->error;
-    }
+    $conexion->query($sql);
 }
 else{
     $sql="INSERT INTO pokemon(numero, nombre, tipo1, tipo2, descripcion, imagen) VALUES($numero, '$nombre', 'img/tipos/$tipo1.png', NULL , '$descripcion', 'img/pokemones/$numero.png')";
-    if ($conexion->query($sql) === TRUE) {
-        echo "Nuevo registro creado con éxito";
-    } else {
-        echo "Error: " . $conexion->error;
-    }
+    $conexion->query($sql);
 }
-echo "<button type='button' onclick='location.href=\"index.php\"'>Volver al Inicio</button>";
+header("location: index.php");
+exit();
