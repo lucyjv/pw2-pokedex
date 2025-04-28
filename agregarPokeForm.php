@@ -18,8 +18,8 @@ $logueado = isset($_SESSION['usuario']);
     if($logueado){
         echo '<form action="agregarPokeFunction.php" method="post" enctype="multipart/form-data">';
         echo 'Nombre: <input type="text" name="nombre" required><br>';
-        echo 'Numero <input type="text" name="numero"><br>';
-        echo 'Descripcion: <input type="text" name="descripcion"><br>';
+        echo 'Numero <input type="text" name="numero" required><br>';
+        echo 'Descripcion: <input type="text" name="descripcion" required><br>';
         echo 'Tipo 1: <select name="tipo1">
                 <option value="normal">Normal</option>
                 <option value="fuego">Fuego</option>
@@ -61,7 +61,7 @@ $logueado = isset($_SESSION['usuario']);
                 <option value="acero">Acero</option>
                 <option value="hada">Hada</option>
             </select>';
-        echo 'Imagen: <input type="file" name="imagen"><br>';
+        echo 'Imagen: <input type="file" name="imagen" required><br>';
         echo '<input type="submit" value="Enviar">';
     }
     else{
