@@ -37,3 +37,4 @@ else{
         echo "Error: " . $conexion->error;
     }
 }
+echo "<button type='button' onclick='location.href=\"index.php\"'>Volver al Inicio</button>";
