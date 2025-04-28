@@ -109,7 +109,7 @@ if ($resultado->num_rows > 0) {
 
         if ($logueado) {
             echo "<td>
-                    <button onclick=\"window.location.href='editarPoke.php?id=" . $fila['id'] . "'\" class='boton-editar'>Editar</button>
+                    <button onclick=\"window.location.href='editarPoke.php?id=" . $fila['nombre'] . "'\" class='boton-editar'>Editar</button>
                     <button class='boton-eliminar'>Eliminar</button>
                   </td>";
         }
@@ -123,7 +123,7 @@ if ($resultado->num_rows > 0) {
 }
 
 if ($logueado) {
-    echo '<button onclick="window.location.href=\'agregarPoke.php\'" class="boton-agregar">Agregar un nuevo Pokémon</button>';
+    echo '<button onclick="window.location.href=\'agregarPokeForm.php\'" class="boton-agregar">Agregar un nuevo Pokémon</button>';
 }
 ?>
 
