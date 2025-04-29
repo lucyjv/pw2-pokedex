@@ -1,6 +1,6 @@
 <?php
 global $conexion;
-include ('conexion.php');
+require_once ('conexion.php');
 function guardarImagen(){
     if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
         $nombreTemporal = $_FILES['imagen']['tmp_name'];

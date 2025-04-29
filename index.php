@@ -4,7 +4,7 @@ session_start();
 $logueado = isset($_SESSION['usuario']);
 
 // Se conecta con la base de datos
-include('conexion.php');
+require_once('conexion.php');
 
 // Capturar búsqueda (si existe)
 $busqueda = "";
