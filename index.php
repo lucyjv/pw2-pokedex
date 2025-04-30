@@ -1,26 +1,35 @@
 <?php
-global $conexion;
+
 
 // Se conecta con la base de datos
 require_once('conexion.php');
 
-// Capturar búsqueda (si existe)
+
 $busqueda = "";
+$mensajeError = "";
+$mostrarTodos = false;
+
 if (isset($_GET['busqueda'])) {
     $busqueda = $conexion->real_escape_string($_GET['busqueda']);
 }
 
-// Si escribió algo en el buscador
+// Ejecutar consulta
 if (!empty($busqueda)) {
     $sql = "SELECT * FROM pokemon WHERE LOWER(nombre) LIKE LOWER('%$busqueda%')";
+    $resultado = $conexion->query($sql);
+
+    if ($resultado->num_rows === 0) {
+        $mensajeError = "No se encontró ningún Pokémon con ese nombre. Mostrando todos los Pokémon.";
+        // Mostrar todos
+        $sql = "SELECT * FROM pokemon";
+        $resultado = $conexion->query($sql);
+    }
 } else {
-    // Si no escribió nada, traer todos los pokemones
     $sql = "SELECT * FROM pokemon";
+    $resultado = $conexion->query($sql);
 }
-
-$resultado = $conexion->query($sql);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,8 +50,16 @@ $resultado = $conexion->query($sql);
     <form method="GET" action="index.php">
         <input type="text" name="busqueda" placeholder="Buscar Pokémon por nombre" value="<?php echo htmlspecialchars($busqueda); ?>">
         <button type="submit">Buscar</button>
+
     </form>
+
+    <?php if (!empty($mensajeError)): ?>
+        <p class="mensaje-error" style="text-align:center; color: red;"><?php echo $mensajeError; ?></p>
+    <?php endif; ?>
+
 </div>
+
+
 
 <?php
 // Mostrar pokemones
