@@ -74,9 +74,9 @@ $logueado = isset($_SESSION['usuario']);
 if ($logueado) {
     echo '<div class="contenedor-agregar">';
     echo '<form action="agregarPokeFunction.php" method="post" enctype="multipart/form-data">';
-    echo 'Nombre: <input type="text" name="nombre" required><br>';
-    echo 'Numero <input type="text" name="numero" required><br>';
-    echo 'Descripcion: <input type="text" name="descripcion" required><br>';
+    echo "Nombre: <input type=\"text\" name=\"nombre\" required value=\"" . $pokemon['nombre'] . "\"><br>";
+    echo "Numero <input type=\"text\" name=\"numero\" required value =\"". $pokemon['numero']. "\"><br>";
+    echo "Descripcion: <input type=\"text\" name=\"descripcion\" required value=\"" . $pokemon['descripcion'] . "\"><br>";
     echo 'Tipo 1: <select name="tipo1">
                 <option value="normal">Normal</option>
                 <option value="fuego">Fuego</option>
