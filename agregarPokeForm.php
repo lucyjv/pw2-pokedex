@@ -67,7 +67,6 @@ include("header.php");
 
 
 <?php
-//session_start(); Ya esta en el header
 $logueado = isset($_SESSION['usuario']);
     if($logueado){
         echo '<div class="contenedor-agregar">';

@@ -107,7 +107,7 @@ if ($resultado->num_rows > 0) {
 
         if ($logueado) {
             echo "<td>
-                    <button onclick=\"window.location.href='editarPoke.php?id=" . urlencode($fila['nombre']) . "'\" class='boton-editar'>Editar</button>
+                    <button onclick=\"window.location.href='editarPokeForm.php?nombre=" . urlencode($fila['nombre']) . "'\" class='boton-editar'>Editar</button>
                     <button onclick=\"if(confirm('¿Estás seguro de que quieres eliminar este Pokémon?')) window.location.href='eliminarPoke.php?nombre=" . urlencode($fila['nombre']) . "'\" class='boton-eliminar'>Eliminar</button>
                   </td>";
         }
