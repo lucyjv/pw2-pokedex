@@ -1,7 +1,8 @@
 <?php
-
+global $logueado, $conexion;
 
 // Se conecta con la base de datos
+
 require_once('conexion.php');
 
 

@@ -1,8 +1,14 @@
+<?php require_once('conexion.php');
+include("header.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Pokédex</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         .error-message {
             color: #ed4337;
@@ -10,12 +16,61 @@
             text-align: center;
             margin-top: 15px;
         }
+
+        .contenedor-agregar{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 650px;
+        }
+
+        form{
+            background-color:white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input[type="text"],
+        form input[type="file"],
+        form select {
+            padding:5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: Poppins, sans-serif;
+        }
+
+        form input[type="submit"] {
+            background-color: #ffcb05;
+            color: #fff;
+            border: none;
+            padding:12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            font-family: Poppins, sans-serif;
+            font-weight: bold;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #2563eb;
+
+        }
+
     </style>
 </head>
+
+
 <?php
-session_start();
+//session_start(); Ya esta en el header
 $logueado = isset($_SESSION['usuario']);
     if($logueado){
+        echo '<div class="contenedor-agregar">';
         echo '<form action="agregarPokeFunction.php" method="post" enctype="multipart/form-data">';
         echo 'Nombre: <input type="text" name="nombre" required><br>';
         echo 'Numero <input type="text" name="numero" required><br>';
@@ -63,6 +118,8 @@ $logueado = isset($_SESSION['usuario']);
             </select>';
         echo 'Imagen: <input type="file" name="imagen" required><br>';
         echo '<input type="submit" value="Enviar">';
+        echo '</form>';
+        echo '</div>';
     }
     else{
         echo '<div class="error-message">No tiene permiso para agregar Pokémones</div>';
