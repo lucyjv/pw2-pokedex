@@ -44,7 +44,11 @@ if (!empty($busqueda)) {
 <?php include("header.php"); ?>
 
 <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-    <div class="error-message">¡El usuario o la contraseña son incorrectos!</div>
+    <div class="error-message">¡Los datos no coinciden con ningun admin!</div>
+<?php endif; ?>
+
+<?php if (isset($_GET['error']) && $_GET['error'] == 2): ?>
+    <div class="error-message">¡Los campos ingresados estan vacios!</div>
 <?php endif; ?>
 
 <div class="search-section">
