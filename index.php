@@ -51,6 +51,13 @@ if (!empty($busqueda)) {
     <div class="error-message">¡Los campos ingresados estan vacios!</div>
 <?php endif; ?>
 
+<?php if (isset($_GET['eliminado'])): ?>
+    <div class="mensaje-confirmacion" style="text-align:center; color: <?php echo $_GET['eliminado'] == 1 ? 'green' : 'red'; ?>;">
+        <?php echo $_GET['eliminado'] == 1 ? '¡Pokémon eliminado correctamente!' : 'Error al eliminar el Pokémon.'; ?>
+    </div>
+<?php endif; ?>
+
+
 <div class="search-section">
     <form method="GET" action="index.php">
         <input type="text" name="busqueda" placeholder="Buscar Pokémon por nombre" value="<?php echo htmlspecialchars($busqueda); ?>">
@@ -100,8 +107,8 @@ if ($resultado->num_rows > 0) {
 
         if ($logueado) {
             echo "<td>
-                    <button onclick=\"window.location.href='editarPoke.php?id=" . $fila['nombre'] . "'\" class='boton-editar'>Editar</button>
-                    <button class='boton-eliminar'>Eliminar</button>
+                    <button onclick=\"window.location.href='editarPoke.php?id=" . urlencode($fila['nombre']) . "'\" class='boton-editar'>Editar</button>
+                    <button onclick=\"if(confirm('¿Estás seguro de que quieres eliminar este Pokémon?')) window.location.href='eliminarPoke.php?nombre=" . urlencode($fila['nombre']) . "'\" class='boton-eliminar'>Eliminar</button>
                   </td>";
         }
         echo "</tr>";
