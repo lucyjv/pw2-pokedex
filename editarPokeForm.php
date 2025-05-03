@@ -66,17 +66,17 @@ require_once ('header.php');
     </head>
 
 <?php
-$nombre=$_GET['nombre'];
-$query=$conexion->query("SELECT * FROM pokemon WHERE nombre='$nombre'");
+$id_incremental=$_GET['id_incremental'];
+$query=$conexion->query("SELECT * FROM pokemon WHERE id_incremental='$id_incremental'");
 $pokemon=$query->fetch_assoc();
 $logueado = isset($_SESSION['usuario']);
 
 if ($logueado) {
     echo '<div class="contenedor-agregar">';
-    echo '<form action="agregarPokeFunction.php" method="post" enctype="multipart/form-data">';
+    echo '<form action="editarPokeFunction.php" method="POST" enctype="multipart/form-data">';
     echo "Nombre: <input type=\"text\" name=\"nombre\" required value=\"" . $pokemon['nombre'] . "\"><br>";
-    echo "Numero <input type=\"text\" name=\"numero\" required value =\"". $pokemon['numero']. "\"><br>";
-    echo "Descripcion: <input type=\"text\" name=\"descripcion\" required value=\"" . $pokemon['descripcion'] . "\"><br>";
+    echo "Número <input type=\"text\" name=\"numero\" required value =\"". $pokemon['numero']. "\"><br>";
+    echo "Descripción: <input type=\"text\" name=\"descripcion\" required value=\"" . $pokemon['descripcion'] . "\"><br>";
     echo 'Tipo 1: <select name="tipo1">
                 <option value="normal">Normal</option>
                 <option value="fuego">Fuego</option>
@@ -118,11 +118,11 @@ if ($logueado) {
                 <option value="acero">Acero</option>
                 <option value="hada">Hada</option>
             </select>';
-    echo 'Imagen: <input type="file" name="imagen" required><br>';
+    echo 'Imagen: <input type="file" name="imagen"><br>';
+    echo '<input type="hidden" name="id_incremental" value="' . $pokemon['id_incremental'] . '">';
     echo '<input type="submit" value="Enviar">';
     echo '</form>';
     echo '</div>';
 } else {
     echo '<div class="error-message">No tiene permiso para editar Pokémones</div>';
 }
-

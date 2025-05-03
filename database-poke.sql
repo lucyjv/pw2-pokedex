@@ -35,3 +35,8 @@
            (23, 'Ekans', 'img/tipos/veneno.png', NULL, 'Se enrosca para descansar. Su cuerpo largo y flexible le permite deslizarse silenciosamente.', 'img/pokemones/23.png'),
            (24, 'Arbok', 'img/tipos/veneno.png', NULL, 'El patrón de su panza intimida a sus enemigos. Puede apretar a su presa hasta asfixiarla.', 'img/pokemones/24.png'),
            (25, 'Pikachu', 'img/tipos/electrico.png', NULL, 'Cuando acumula demasiada electricidad, la libera de una vez, causando descargas potentes.', 'img/pokemones/25.png');
+
+    CREATE TABLE administradores(
+        id_incremental INT(11) PRIMARY KEY AUTO_INCREMENT, usuario varchar(100), contrasenia varchar(100));
+
+        INSERT INTO administradores(usuario, contrasenia) VALUES('admin', '1234');
