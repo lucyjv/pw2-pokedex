@@ -16,11 +16,12 @@ if (isset($_GET['busqueda'])) {
 
 // Ejecutar consulta
 if (!empty($busqueda)) {
-    $sql = "SELECT * FROM pokemon WHERE LOWER(nombre) LIKE LOWER('%$busqueda%')";
+    $sql = "SELECT * FROM pokemon WHERE LOWER(nombre) LIKE LOWER('%$busqueda%') OR numero = '$busqueda'";
+
     $resultado = $conexion->query($sql);
 
     if ($resultado->num_rows === 0) {
-        $mensajeError = "No se encontró ningún Pokémon con ese nombre. Mostrando todos los Pokémon.";
+        $mensajeError = "No se encontró ningún Pokémon con ese nombre o numero. Mostrando todos los Pokémon.";
         // Mostrar todos
         $sql = "SELECT * FROM pokemon";
         $resultado = $conexion->query($sql);
