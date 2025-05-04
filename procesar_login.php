@@ -3,10 +3,6 @@ global $conexion;
 session_start();
 require_once('conexion.php');
 
-// SE CREA UN ADMIN, esta hardcodeado no vinculado a una base de datos (Proximamente)
-//$admin_valido = "admin";
-//$contrasenia_valida = "1234";
-
 //Traemos los datos del form
 $admin = isset($_POST['usuario']) ? $_POST['usuario'] : '';
 $contrasenia = isset($_POST['contrasenia']) ? $_POST['contrasenia'] : '';
