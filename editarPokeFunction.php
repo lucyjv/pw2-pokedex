@@ -1,6 +1,5 @@
 <?php
 
-global $conexion;
 require_once ('conexion.php');
 
 function guardarImagen($numero) {

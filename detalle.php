@@ -27,16 +27,6 @@ $descripcion = $pokemon['descripcion'];
 </head>
 <body>
 <main>
-<!--    --><?php
-//        echo "<img src='" . htmlspecialchars($imagen) . "' alt='" . htmlspecialchars($nombre) . "'>";
-//        echo "<h2>" . $nombre . "</h2>";
-//        echo "<img src='" . htmlspecialchars($tipo1) . "' alt='" . htmlspecialchars($tipo1) . "'>";
-//        if ($tipo2 != null){
-//            echo "<img src='" . htmlspecialchars($tipo2) . "' alt='" . htmlspecialchars($tipo2) . "'>";
-//        }
-//        echo "<p>" . $descripcion . "</p>";
-//    ?>
-
     <div class="pokemon-detalle">
         <div class="imagen-grande">
             <img src="<?= htmlspecialchars($imagen) ?>" alt="<?= htmlspecialchars($nombre) ?>">

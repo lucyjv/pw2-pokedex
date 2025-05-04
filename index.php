@@ -45,11 +45,11 @@ if (!empty($busqueda)) {
 <?php include("header.php"); ?>
 
 <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-    <div class="error-message">¡Los datos no coinciden con ningun admin!</div>
+    <div class="error-message">¡Los datos no coinciden con ningún admin!</div>
 <?php endif; ?>
 
 <?php if (isset($_GET['error']) && $_GET['error'] == 2): ?>
-    <div class="error-message">¡Los campos ingresados estan vacios!</div>
+    <div class="error-message">¡Los campos ingresados están vacíos!</div>
 <?php endif; ?>
 
 <?php if (isset($_GET['eliminado'])): ?>
